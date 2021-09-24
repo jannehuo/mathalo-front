@@ -1,3 +1,3 @@
 # mathalo-front
 
-To run on **npm start**
+To run on localhost **npm start**
