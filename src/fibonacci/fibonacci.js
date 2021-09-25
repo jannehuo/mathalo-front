@@ -6,17 +6,12 @@ import { loadData } from '../http/http';
 
 class Fibonacci {
   constructor() {
-    const dataUrl = `${BASE_URL}${API_PATHS.fibonacci}/${100}`;
+    this.dataUrl = `${BASE_URL}${API_PATHS.fibonacci}/${100}`;
     this.canvas = getCanvasElement(CANVAS_ID);
     this.ctx = this.canvas.getContext('2d');
     this.data = [];
     this.palette = getRandomPalette();
     this.screen = getScreenSize();
-
-    loadData(dataUrl).then((response) => {
-      this.data = response;
-      this.init();
-    });
   }
 
   init() {
@@ -24,24 +19,31 @@ class Fibonacci {
     const backgroundColor = head(this.palette);
     this.ctx.fillStyle = backgroundColor;
     this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
-    this.draw();
+    loadData(this.dataUrl).then((response) => {
+      this.data = response;
+      this.draw();
+    });
   }
 
   draw() {
     const pointColor = sample(drop(this.palette));
     const xPos = this.screen.w / 2;
-    const radius = 1;
+    const radius = 5;
     this.data.forEach((point) => {
       const yPos = point;
-      this.ctx.beginPath();
-      this.ctx.fillStyle = pointColor;
-      this.ctx.arc(xPos, yPos, radius, 0, 2 * Math.PI);
-      this.ctx.fill();
+      this.circle(xPos, yPos, radius, pointColor);
     });
   }
 
+  circle(x, y, radius, color) {
+    this.ctx.beginPath();
+    this.ctx.fillStyle = color;
+    this.ctx.arc(x, y, radius, 0, 2 * Math.PI);
+    this.ctx.fill();
+  }
+
   clear() {
-    this.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
   }
 }
 

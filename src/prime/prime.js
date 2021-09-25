@@ -1,7 +1,5 @@
 class Prime {
-  constructor() {
-    this.init();
-  }
+  constructor() {}
   init() {
     console.log('INIT FOR PRIME!!');
   }
