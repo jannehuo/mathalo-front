@@ -1,4 +1,3 @@
-import { initCanvas } from './canvas/canvas'
-import { CANVAS_ID } from './constants'
+import Fibonacci from './fibonacci/fibonacci';
 
-initCanvas(CANVAS_ID)
+new Fibonacci();
