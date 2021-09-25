@@ -39,6 +39,10 @@ class Fibonacci {
       this.ctx.fill();
     });
   }
+
+  clear() {
+    this.clearRect(0, 0, this.canvas.width, this.canvas.height);
+  }
 }
 
 export default Fibonacci;
