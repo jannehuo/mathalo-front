@@ -1,20 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mathalo</title>
-    <style>
-      body {
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-      }
-    </style>
-  </head>
-  <body>
-    <canvas id="canvas"></canvas>
-    <script src="src/index.js"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mathalo</title>
+  <link rel="stylesheet" href="src/css/style.css">
+</head>
+
+<body>
+  <div class="select-container">
+    <label for="option">Choose an option</label>
+    <select name="option" id="option">
+      <option value="Empty" selected="selected">Choose Here</option>
+      <option value="Fibonacci">Fibonacci</option>
+      <option value="Prime">Prime</option>
+    </select>
+  </div>
+
+  <canvas id="canvas"></canvas>
+  <script src="src/index.js"></script>
+</body>
+
 </html>
